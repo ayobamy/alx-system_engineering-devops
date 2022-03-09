@@ -1,1 +1,1 @@
-This project descirbes the basic commands line in Shell I/O 
+This project descirbes the basic commands line in Shell Input/Output redirections 
