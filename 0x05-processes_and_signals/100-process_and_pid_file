@@ -17,7 +17,7 @@ while true
 do
 	echo "To infinity and beyond"
 	sleep 2
-	trap "echo 'Y U no love me?!'" SIGINT
+	trap 'echo "Y U no love me?!"' SIGINT
 	trap 'echo "I hate the kill command" && terminator' SIGTERM
-	trap 'exitor' SIGQUITgit
+	trap 'exitor' SIGQUIT
 done
