@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+#-- Displays info about subdomains.
+
+info () {
+    ans=$(dig "$2"."$1" | grep -A1 "ANSWER SECTION:" | tr "\t" "\n" | tail -2 | tr "\n" " ")
+    
+    echo "$2 $ans" | awk '{print "The subdomain " $1 " is a " $2 " record and points to " $3}'
+        
+}
+
+
+if [ "$#" -eq 1 ] 
+then
+    info "$1" "www"
+    info "$1" "lb-01"
+    info "$1" "web-01"
+    info "$1" "web-02"
+else
+    info  "$1" "$2"
+fi
