@@ -15,13 +15,15 @@ if __name__ == '__main__':
     r = requests.get("{}/users/{}".format(url, user_id)).json()
     user_todo = requests.get(url + "/todos", params).json()
     
+    completed_tasks = []
     for data in user_todo:
         if (data.get('completed')):
-            completed_tasks = data.get('title')
+            data = data.get('title')
+            completed_tasks.append(data)
 
     num_of_tasks = len(user_todo)
     tasks_done = len(completed_tasks)
-    employee_name = user.get('name')
+    employee_name = r.get('name')
 
     print("Employee {} is done with tasks({}/{}):".format(employee_name,
           tasks_done, num_of_tasks))
