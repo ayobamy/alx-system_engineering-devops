@@ -14,7 +14,7 @@ if __name__ == '__main__':
 
     r = requests.get("{}/users/{}".format(url, user_id)).json()
     user_todo = requests.get(url + "/todos", params).json()
-    
+
     completed_tasks = []
     for data in user_todo:
         if (data.get('completed')):
