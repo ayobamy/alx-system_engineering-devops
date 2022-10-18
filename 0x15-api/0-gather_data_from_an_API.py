@@ -17,7 +17,7 @@ if __name__ == '__main__':
 
     completed_tasks = []
     for data in user_todo:
-        if (data.get('completed')):
+        if (data.get('completed') is True):
             data = data.get('title')
             completed_tasks.append(data)
 
