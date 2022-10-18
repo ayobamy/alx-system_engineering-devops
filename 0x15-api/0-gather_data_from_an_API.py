@@ -1,7 +1,7 @@
-# #!/usr/bin/python3
-# """
-# a script that returns info about a customer's todo list
-# """
+#!/usr/bin/python3
+"""
+a script that returns info about a customer's todo list
+"""
 import requests
 from sys import argv
 
