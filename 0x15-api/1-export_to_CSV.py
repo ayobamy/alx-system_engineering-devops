@@ -20,10 +20,11 @@ if __name__ == '__main__':
     line = []
     for info in todos:
         line.append([employeeId, userName, info.get('completed'),
-            info.get('title')])
+        info.get('title')])
 
     with open(fileName, "w", newline="") as csvfile:
         writer = csv.writer(csvfile, delimiter = ',', quotechar='"',
-                            quoting=csv.QUOTE_ALL)
+        quoting=csv.QUOTE_ALL)
+
         for r in line:
             writer.writerow(r)
