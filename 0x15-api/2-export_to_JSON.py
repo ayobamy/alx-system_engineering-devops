@@ -2,7 +2,7 @@
 """
 a script that returns info about a customer's todo list
 """
-import csv
+import json
 import requests
 from sys import argv
 
@@ -15,16 +15,9 @@ if __name__ == '__main__':
     todos = requests.get(url + "/todos", params={"userId": employeeId}).json()
 
     userName = employee.get('username')
-    fileName = employeeId + ".csv"
+    fileName = employeeId + ".json"
 
     line = []
     for info in todos:
-        line.append([employeeId, userName, info.get('completed'),
-                    info.get('title')])
+        info.append({'task': info.get('title'),  })
 
-    with open(fileName, "w", newline="") as csvfile:
-        writer = csv.writer(csvfile, delimiter=',',
-                            quotechar='"', quoting=csv.QUOTE_ALL)
-
-        for r in line:
-            writer.writerow(r)
